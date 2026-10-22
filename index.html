@@ -1,0 +1,1307 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Costa Dorada | Luxury Resort</title>
+<meta name="description" content="Descubre Costa Dorada, un resort de lujo en el Caribe con suites exclusivas, gastronomía y experiencias inolvidables.">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #d7b56d;
+  --gold-light: #f3dfaa;
+  --dark: #101612;
+  --cream: #f7f4ed;
+  --muted: #bcbdb5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: #20241f;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  width: 100%;
+  padding: 24px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  border-bottom: 1px solid #ffffff35;
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 29px;
+  letter-spacing: 4px;
+  color: var(--gold-light);
+}
+
+.logo small {
+  display: block;
+  font: 9px 'Montserrat', sans-serif;
+  letter-spacing: 5px;
+  text-align: center;
+  margin-top: 3px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+nav a:hover {
+  color: var(--gold-light);
+}
+
+.nav-button, .gold-button {
+  background: var(--gold);
+  color: #171811;
+  border: none;
+  padding: 15px 22px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+
+.nav-button:hover, .gold-button:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  color: white;
+  border: 1px solid #ffffff55;
+  padding: 9px 12px;
+}
+
+.hero {
+  min-height: 750px;
+  height: 100vh;
+  max-height: 1000px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+  background:
+    linear-gradient(90deg, #07120dcc 0%, #07120d80 45%, #07120d18 100%),
+    linear-gradient(0deg, #07120d80, transparent 50%),
+    url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=2200&q=90') center/cover;
+}
+
+.hero-content {
+  padding: 100px 10% 30px;
+  max-width: 920px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(54px, 8vw, 105px);
+  line-height: .94;
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+
+.hero h1 span {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.hero p {
+  max-width: 510px;
+  color: #eee9df;
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 34px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.outline-button {
+  padding: 15px 22px;
+  border: 1px solid #ffffff90;
+  color: white;
+  background: transparent;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.outline-button:hover {
+  background: white;
+  color: #171811;
+}
+
+.hero-badge {
+  position: absolute;
+  right: 7%;
+  bottom: 80px;
+  text-align: center;
+  border: 1px solid #d7b56d9c;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: grid;
+  place-content: center;
+  color: var(--gold-light);
+  background: #10161270;
+}
+
+.hero-badge strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+}
+
+.hero-badge span {
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.booking-wrap {
+  background: var(--dark);
+  color: white;
+  padding: 28px 7%;
+}
+
+.booking-form {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1.2fr 1fr 1fr auto;
+  gap: 18px;
+  align-items: end;
+}
+
+.field label {
+  display: block;
+  font-size: 9px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.field input, .field select {
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ffffff45;
+  padding: 10px 0;
+  color: white;
+  outline: none;
+}
+
+.field select option {
+  color: #111;
+}
+
+.section {
+  padding: 105px 7%;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 55px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 15px;
+}
+
+.section-heading h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 61px);
+  line-height: 1.05;
+  font-weight: 500;
+}
+
+.section-heading p {
+  color: #77786e;
+  font-size: 13px;
+  line-height: 2;
+  margin-top: 20px;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+  align-items: center;
+  background: white;
+}
+
+.intro-image {
+  height: 530px;
+  background: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=85') center/cover;
+}
+
+.intro-copy .eyebrow {
+  margin-bottom: 20px;
+}
+
+.intro-copy h2 {
+  font: 500 clamp(38px, 5vw, 59px)/1.05 'Cormorant Garamond', serif;
+  margin-bottom: 23px;
+}
+
+.intro-copy p {
+  color: #72756d;
+  font-size: 13px;
+  line-height: 2.1;
+  margin-bottom: 22px;
+}
+
+.signature {
+  font: italic 27px 'Cormorant Garamond', serif;
+  color: #a0803c;
+}
+
+.rooms {
+  background: #f3f0e8;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.room-card {
+  background: white;
+  transition: .35s;
+  overflow: hidden;
+}
+
+.room-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px #17181118;
+}
+
+.room-image {
+  height: 260px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.room-image::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 0;
+  background: linear-gradient(transparent, #0007);
+}
+
+.room-tag {
+  position: absolute;
+  z-index: 1;
+  top: 17px;
+  left: 17px;
+  padding: 8px 12px;
+  background: var(--gold);
+  color: #171811;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.room-body {
+  padding: 27px;
+}
+
+.room-body h3 {
+  font: 500 30px 'Cormorant Garamond', serif;
+  margin-bottom: 10px;
+}
+
+.room-body p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #797b73;
+  min-height: 46px;
+}
+
+.room-details {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 18px 0;
+  margin: 16px 0;
+  border-top: 1px solid #e8e5dd;
+  border-bottom: 1px solid #e8e5dd;
+  font-size: 10px;
+  color: #66695f;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.price strong {
+  font-size: 20px;
+  color: #987531;
+}
+
+.price small {
+  display: block;
+  font-size: 9px;
+  color: #777;
+  margin-top: 5px;
+}
+
+.small-button {
+  padding: 12px 15px;
+  background: var(--dark);
+  color: white;
+  border: none;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.small-button:hover {
+  background: #8c713c;
+}
+
+.experiences {
+  background: var(--dark);
+  color: white;
+}
+
+.experiences .section-heading p {
+  color: #b7b8ae;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: #ffffff25;
+  border: 1px solid #ffffff25;
+}
+
+.experience {
+  padding: 35px 25px;
+  background: var(--dark);
+  transition: .3s;
+}
+
+.experience:hover {
+  background: #202a20;
+}
+
+.experience .symbol {
+  color: var(--gold);
+  font-size: 29px;
+  margin-bottom: 24px;
+}
+
+.experience h3 {
+  font: 500 26px 'Cormorant Garamond', serif;
+  margin-bottom: 13px;
+}
+
+.experience p {
+  font-size: 11px;
+  line-height: 2;
+  color: #b7b8ae;
+}
+
+.restaurant {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  background: white;
+}
+
+.restaurant-image {
+  background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=85') center/cover;
+}
+
+.restaurant-copy {
+  padding: 75px 10%;
+  align-self: center;
+}
+
+.restaurant-copy h2 {
+  font: 500 clamp(39px, 5vw, 58px)/1.05 'Cormorant Garamond', serif;
+  margin-bottom: 20px;
+}
+
+.restaurant-copy p {
+  color: #77786e;
+  font-size: 13px;
+  line-height: 2;
+  margin-bottom: 25px;
+}
+
+.reviews {
+  background: #f3f0e8;
+}
+
+.review-summary {
+  text-align: center;
+  margin: -20px 0 35px;
+}
+
+.review-score {
+  font: 60px 'Cormorant Garamond', serif;
+}
+
+.stars {
+  color: #b38d43;
+  letter-spacing: 4px;
+  margin: 8px 0;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.review-card {
+  background: white;
+  padding: 30px;
+}
+
+.review-card p {
+  font: italic 21px/1.5 'Cormorant Garamond', serif;
+  margin: 18px 0 25px;
+}
+
+.review-card small {
+  color: #797b73;
+  font-size: 10px;
+}
+
+.review-card strong {
+  display: block;
+  font-size: 11px;
+  margin-top: 8px;
+}
+
+.notice {
+  font-size: 10px;
+  color: #85867d;
+  text-align: center;
+  margin-top: 25px;
+  line-height: 1.8;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 12px;
+}
+
+.gallery-item {
+  background-position: center;
+  background-size: cover;
+  transition: .3s;
+}
+
+.gallery-item:hover {
+  filter: brightness(.8);
+}
+
+.gallery-item:first-child {
+  grid-row: span 2;
+}
+
+.gallery-item:nth-child(1) {
+  background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85');
+}
+
+.gallery-item:nth-child(2) {
+  background-image: url('https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=800&q=85');
+}
+
+.gallery-item:nth-child(3) {
+  background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=800&q=85');
+}
+
+.gallery-item:nth-child(4) {
+  background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=85');
+}
+
+.gallery-item:nth-child(5) {
+  background-image: url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=85');
+}
+
+.contact {
+  background: #eae5d8;
+  text-align: center;
+}
+
+.contact h2 {
+  font: 500 clamp(40px, 6vw, 68px) 'Cormorant Garamond', serif;
+  margin-bottom: 20px;
+}
+
+.contact p {
+  color: #6e7067;
+  line-height: 2;
+  font-size: 13px;
+  margin: 0 auto 30px;
+  max-width: 570px;
+}
+
+.contact .gold-button {
+  display: inline-block;
+}
+
+footer {
+  padding: 55px 7% 25px;
+  background: var(--dark);
+  color: white;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #ffffff25;
+}
+
+.footer-top p {
+  color: #b9b9b0;
+  font-size: 11px;
+  line-height: 2;
+  margin-top: 15px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  font-size: 11px;
+  color: #d4d4cc;
+}
+
+.footer-bottom {
+  padding-top: 25px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #a6a79e;
+  font-size: 10px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 50;
+  background: #101612;
+  color: white;
+  border-left: 4px solid var(--gold);
+  padding: 20px 24px;
+  max-width: 340px;
+  box-shadow: 0 10px 40px #0003;
+  display: none;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.toast.show {
+  display: block;
+}
+
+@media (max-width: 950px) {
+  nav {
+    gap: 13px;
+    font-size: 9px;
+  }
+
+  .booking-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .booking-form .gold-button {
+    width: 100%;
+  }
+
+  .room-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .experience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .intro {
+    gap: 35px;
+  }
+}
+
+@media (max-width: 650px) {
+  header {
+    padding: 18px 5%;
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: #101612f5;
+    flex-direction: column;
+    align-items: stretch;
+    font-size: 11px;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  nav a {
+    padding: 10px 0;
+  }
+
+  .hero {
+    min-height: 730px;
+    background-position: 57% center;
+  }
+
+  .hero-content {
+    padding: 100px 7% 30px;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  .hero p {
+    font-size: 12px;
+  }
+
+  .hero-badge {
+    width: 88px;
+    height: 88px;
+    right: 6%;
+    bottom: 28px;
+  }
+
+  .hero-badge strong {
+    font-size: 25px;
+  }
+
+  .booking-wrap {
+    padding: 30px 6%;
+  }
+
+  .booking-form {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 14px;
+  }
+
+  .booking-form .gold-button {
+    grid-column: span 2;
+  }
+
+  .section {
+    padding: 70px 6%;
+  }
+
+  .intro, .restaurant {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-image {
+    height: 330px;
+  }
+
+  .intro-copy {
+    padding: 0;
+  }
+
+  .room-grid, .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .room-image {
+    height: 250px;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .experience {
+    padding: 25px 16px;
+  }
+
+  .experience h3 {
+    font-size: 22px;
+  }
+
+  .restaurant-image {
+    min-height: 300px;
+  }
+
+  .restaurant-copy {
+    padding: 50px 7%;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 240px 160px 160px;
+  }
+
+  .gallery-item:first-child {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    gap: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="#inicio">
+    COSTA DORADA
+    <small>LUXURY RESORT & SPA</small>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"
+    aria-expanded="false">☰</button>
+
+  <nav id="nav">
+    <a href="#inicio">Inicio</a>
+    <a href="#nosotros">El resort</a>
+    <a href="#habitaciones">Habitaciones</a>
+    <a href="#experiencias">Experiencias</a>
+    <a href="#resenas">Reseñas</a>
+    <a href="#contacto" class="nav-button">Reservar ahora</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="eyebrow">Una nueva definición del lujo</div>
+    <h1>El paraíso<br>tiene un nombre:<br><span>Costa Dorada.</span></h1>
+    <p>
+      Descubre un santuario extraordinario frente al mar Caribe,
+      donde la elegancia, la privacidad y las experiencias
+      inolvidables se encuentran.
+    </p>
+    <div class="hero-actions">
+      <a class="gold-button" href="#habitaciones">Descubrir habitaciones</a>
+      <a class="outline-button" href="#experiencias">Explorar el resort</a>
+    </div>
+  </div>
+
+  <div class="hero-badge">
+    <strong>7★</strong>
+    <span>LUJO EXCEPCIONAL</span>
+  </div>
+</section>
+
+<section class="booking-wrap" id="reservar">
+  <form class="booking-form" id="bookingForm">
+    <div class="field">
+      <label for="checkin">Llegada</label>
+      <input type="date" id="checkin" required>
+    </div>
+
+    <div class="field">
+      <label for="checkout">Salida</label>
+      <input type="date" id="checkout" required>
+    </div>
+
+    <div class="field">
+      <label for="guests">Huéspedes</label>
+      <select id="guests">
+        <option>1 huésped</option>
+        <option selected>2 huéspedes</option>
+        <option>3 huéspedes</option>
+        <option>4 huéspedes</option>
+        <option>5 o más</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="roomType">Habitación</label>
+      <select id="roomType">
+        <option value="suite">Royal Ocean Suite</option>
+        <option value="presidential">Presidential Palace</option>
+        <option value="villa">Imperial Private Villa</option>
+        <option value="sky">Golden Sky Penthouse</option>
+        <option value="diamond">Diamond Presidential Villa</option>
+        <option value="royal">Royal Grand Mansion</option>
+      </select>
+    </div>
+
+    <button class="gold-button" type="submit">Consultar</button>
+  </form>
+</section>
+
+<section class="section intro" id="nosotros">
+  <div class="intro-image" role="img" aria-label="Resort tropical con piscina"></div>
+
+  <div class="intro-copy">
+    <div class="eyebrow">Más que un hotel</div>
+    <h2>El arte de vivir extraordinariamente.</h2>
+    <p>
+      Bienvenido a Costa Dorada, un concepto ficticio de resort
+      de ultralujo inspirado en la belleza del Caribe dominicano.
+      Cada espacio ha sido imaginado para ofrecer privacidad,
+      comodidad y un servicio personalizado.
+    </p>
+    <p>
+      Desde despertar con vistas al océano hasta cenar bajo
+      las estrellas, cada momento está diseñado para convertirse
+      en un recuerdo inolvidable.
+    </p>
+    <div class="signature">Tu mundo. Tu paraíso.</div>
+  </div>
+</section>
+
+<section class="section rooms" id="habitaciones">
+  <div class="section-heading">
+    <div class="eyebrow">Alojamientos exclusivos</div>
+    <h2>Habitaciones fuera de lo común.</h2>
+    <p>
+      Espacios diseñados para quienes buscan algo más que una
+      habitación: una experiencia privada de lujo absoluto.
+    </p>
+  </div>
+
+  <div class="room-grid">
+
+    <article class="room-card">
+      <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=85')">
+        <span class="room-tag">Elegancia</span>
+      </div>
+      <div class="room-body">
+        <h3>Royal Ocean Suite</h3>
+        <p>Suite panorámica con balcón privado y vistas espectaculares al océano.</p>
+        <div class="room-details">
+          <span>♧ 85 m²</span><span>☾ 2 huéspedes</span><span>♨ Bañera premium</span>
+        </div>
+        <div class="price-row">
+          <div class="price"><strong>RD$ 38,500</strong><small>por noche · precio ficticio</small></div>
+          <button class="small-button" data-room="suite">Elegir suite</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="room-card">
+      <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=85')">
+        <span class="room-tag">Más exclusivo</span>
+      </div>
+      <div class="room-body">
+        <h3>Presidential Palace</h3>
+        <p>Salón privado, dormitorio de diseño y terraza con piscina de inmersión.</p>
+        <div class="room-details">
+          <span>♧ 180 m²</span><span>☾ 4 huéspedes</span><span>♨ Piscina privada</span>
+        </div>
+        <div class="price-row">
+          <div class="price"><strong>RD$ 95,000</strong><small>por noche · precio ficticio</small></div>
+          <button class="small-button" data-room="presidential">Elegir suite</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="room-card">
+      <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=85')">
+        <span class="room-tag">Privacidad total</span>
+      </div>
+      <div class="room-body">
+        <h3>Imperial Private Villa</h3>
+        <p>Villa rodeada de jardines tropicales, piscina infinita y servicio de mayordomo.</p>
+        <div class="room-details">
+          <span>♧ 320 m²</span><span>☾ 6 huéspedes</span><span>♨ Villa privada</span>
+        </div>
+        <div class="price-row">
+          <div class="price"><strong>RD$ 185,000</strong><small>por noche · precio ficticio</small></div>
+          <button class="small-button" data-room="villa">Elegir villa</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="room-card">
+      <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=85')">
+        <span class="room-tag">Vistas infinitas</span>
+      </div>
+      <div class="room-body">
+        <h3>Golden Sky Penthouse</h3>
+        <p>Penthouse de dos niveles, salón panorámico y terraza privada sobre el mar.</p>
+        <div class="room-details">
+          <span>♧ 250 m²</span><span>☾ 4 huéspedes</span><span>♧ Terraza premium</span>
+        </div>
+        <div class="price-row">
+          <div class="price"><strong>RD$ 145,000</strong><small>por noche · precio ficticio</small></div>
+          <button class="small-button" data-room="sky">Elegir suite</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="room-card">
+      <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=85')">
+        <span class="room-tag">Colección Diamond</span>
+      </div>
+      <div class="room-body">
+        <h3>Diamond Presidential Villa</h3>
+        <p>Residencia de lujo con varias suites, cine privado y piscina climatizada.</p>
+        <div class="room-details">
+          <span>♧ 480 m²</span><span>☾ 8 huéspedes</span><span>♨ Cine privado</span>
+        </div>
+        <div class="price-row">
+          <div class="price"><strong>RD$ 295,000</strong><small>por noche · precio ficticio</small></div>
+          <button class="small-button" data-room="diamond">Elegir villa</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="room-card">
+      <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85')">
+        <span class="room-tag">La máxima experiencia</span>
+      </div>
+      <div class="room-body">
+        <h3>Royal Grand Mansion</h3>
+        <p>Mansión extraordinaria con jardines privados, chef exclusivo y acceso reservado.</p>
+        <div class="room-details">
+          <span>♧ 800 m²</span><span>☾ 10 huéspedes</span><span>♨ Chef privado</span>
+        </div>
+        <div class="price-row">
+          <div class="price"><strong>RD$ 550,000</strong><small>por noche · precio ficticio</small></div>
+          <button class="small-button" data-room="royal">Elegir mansión</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+  <p class="notice">Tarifas ilustrativas por noche, no verificadas comercialmente. Impuestos, disponibilidad y servicios sujetos a condiciones ficticias del proyecto.</p>
+</section>
+
+<section class="section experiences" id="experiencias">
+  <div class="section-heading">
+    <div class="eyebrow">Un universo de posibilidades</div>
+    <h2>Todo lo que imaginas. Y más.</h2>
+    <p>
+      Experiencias diseñadas para disfrutar el Caribe con
+      comodidad, exclusividad y un toque extraordinario.
+    </p>
+  </div>
+
+  <div class="experience-grid">
+    <article class="experience">
+      <div class="symbol">♨</div>
+      <h3>Infinity Pools</h3>
+      <p>Piscinas panorámicas, cabañas privadas y servicio junto al agua.</p>
+    </article>
+    <article class="experience">
+      <div class="symbol">✧</div>
+      <h3>Royal Spa</h3>
+      <p>Masajes, tratamientos relajantes, circuito de bienestar y sauna.</p>
+    </article>
+    <article class="experience">
+      <div class="symbol">◇</div>
+      <h3>Alta cocina</h3>
+      <p>Restaurantes de autor, cocina caribeña y cenas privadas.</p>
+    </article>
+    <article class="experience">
+      <div class="symbol">⌁</div>
+      <h3>Playa privada</h3>
+      <p>Camas balinesas, deportes acuáticos y paseos en catamarán.</p>
+    </article>
+    <article class="experience">
+      <div class="symbol">✦</div>
+      <h3>Concierge VIP</h3>
+      <p>Atención personalizada y experiencias organizadas a medida.</p>
+    </article>
+    <article class="experience">
+      <div class="symbol">♬</div>
+      <h3>Sky Lounge</h3>
+      <p>Terraza panorámica, música en vivo y atardeceres inolvidables.</p>
+    </article>
+    <article class="experience">
+      <div class="symbol">✈</div>
+      <h3>Traslados VIP</h3>
+      <p>Transporte privado y traslados ejecutivos como servicio de cortesía o reserva.</p>
+    </article>
+    <article class="experience">
+      <div class="symbol">♙</div>
+      <h3>Kids & Family Club</h3>
+      <p>Actividades creativas, entretenimiento familiar y espacios infantiles.</p>
+    </article>
+  </div>
+</section>
+
+<section class="restaurant" id="gastronomia">
+  <div class="restaurant-image" role="img" aria-label="Restaurante elegante"></div>
+  <div class="restaurant-copy">
+    <div class="eyebrow">Gastronomía de autor</div>
+    <h2>Sabores que se convierten en recuerdos.</h2>
+    <p>
+      Una propuesta gastronómica imaginada para recorrer
+      sabores del mundo: pescados del Caribe, cocina internacional,
+      experiencias degustación y cenas románticas junto al mar.
+    </p>
+    <p>
+      Servicio a la habitación, desayunos exclusivos y menús
+      personalizados completan la experiencia.
+    </p>
+    <a href="#contacto" class="gold-button">Descubrir experiencias</a>
+  </div>
+</section>
+
+<section class="section reviews" id="resenas">
+  <div class="section-heading">
+    <div class="eyebrow">Experiencias memorables</div>
+    <h2>El lujo está en cada detalle.</h2>
+    <p>Opiniones de ejemplo para la presentación del concepto del resort.</p>
+  </div>
+
+  <div class="review-summary">
+    <div class="review-score">4.9<span style="font-size:22px">/5</span></div>
+    <div class="stars">★★★★★</div>
+    <p style="font-size:11px;color:#777">Puntuación demostrativa · no son reseñas reales</p>
+  </div>
+
+  <div class="review-grid">
+    <article class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Un lugar que parece sacado de una película. La vista al mar y el diseño de las habitaciones son espectaculares.”</p>
+      <small>Reseña de ejemplo</small>
+      <strong>María R. · Viaje en pareja</strong>
+    </article>
+    <article class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“La idea de una villa privada con piscina y atención personalizada hace que la experiencia se sienta única.”</p>
+      <small>Reseña de ejemplo</small>
+      <strong>Carlos M. · Escapada de lujo</strong>
+    </article>
+    <article class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Un concepto impresionante, con gastronomía, bienestar y espacios creados para desconectar del mundo.”</p>
+      <small>Reseña de ejemplo</small>
+      <strong>Laura G. · Vacaciones familiares</strong>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="galeria">
+  <div class="section-heading">
+    <div class="eyebrow">Un vistazo al paraíso</div>
+    <h2>La belleza vive aquí.</h2>
+    <p>Una selección visual inspirada en el lujo tropical.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item" role="img" aria-label="Resort tropical"></div>
+    <div class="gallery-item" role="img" aria-label="Piscina de lujo"></div>
+    <div class="gallery-item" role="img" aria-label="Arquitectura tropical"></div>
+    <div class="gallery-item" role="img" aria-label="Restaurante elegante"></div>
+    <div class="gallery-item" role="img" aria-label="Mar Caribe"></div>
+  </div>
+</section>
+
+<section class="section contact" id="contacto">
+  <div class="eyebrow">Tu próxima gran experiencia</div>
+  <h2>El paraíso te está esperando.</h2>
+  <p>
+    Elige tu estancia, imagina tus vacaciones y descubre
+    una nueva forma de disfrutar el lujo caribeño.
+  </p>
+  <a href="#reservar" class="gold-button">Planificar mi estancia</a>
+</section>
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <a class="logo" href="#inicio">COSTA DORADA
+        <small>LUXURY RESORT & SPA</small>
+      </a>
+      <p>Una visión extraordinaria del lujo caribeño.<br>
+      Un concepto ficticio de hotel para demostración web.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#nosotros">El resort</a>
+      <a href="#habitaciones">Habitaciones</a>
+      <a href="#experiencias">Experiencias</a>
+      <a href="#galeria">Galería</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Costa Dorada · Proyecto demostrativo</span>
+    <span>Lujo · Exclusividad · Caribe</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const nav = document.getElementById('nav');
+const menuToggle = document.getElementById('menuToggle');
+const toast = document.getElementById('toast');
+let toastTimeout;
+
+function notify(message) {
+  toast.textContent = message;
+  toast.classList.add('show');
+  clearTimeout(toastTimeout);
+  toastTimeout = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 5000);
+}
+
+menuToggle.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Fechas mínimas para evitar seleccionar días pasados.
+const today = new Date();
+const localToday = [
+  today.getFullYear(),
+  String(today.getMonth() + 1).padStart(2, '0'),
+  String(today.getDate()).padStart(2, '0')
+].join('-');
+
+const checkin = document.getElementById('checkin');
+const checkout = document.getElementById('checkout');
+
+checkin.min = localToday;
+checkout.min = localToday;
+
+checkin.addEventListener('change', () => {
+  checkout.min = checkin.value || localToday;
+
+  if (checkout.value && checkout.value <= checkin.value) {
+    checkout.value = '';
+  }
+});
+
+const roomNames = {
+  suite: 'Royal Ocean Suite',
+  presidential: 'Presidential Palace',
+  villa: 'Imperial Private Villa',
+  sky: 'Golden Sky Penthouse',
+  diamond: 'Diamond Presidential Villa',
+  royal: 'Royal Grand Mansion'
+};
+
+document.querySelectorAll('[data-room]').forEach(button => {
+  button.addEventListener('click', () => {
+    document.getElementById('roomType').value = button.dataset.room;
+    document.getElementById('reservar').scrollIntoView({
+      behavior: 'smooth'
+    });
+    notify('Has elegido: ' + roomNames[button.dataset.room] +
+      '. Completa las fechas para consultar tu estancia de demostración.');
+  });
+});
+
+document.getElementById('bookingForm').addEventListener('submit', event => {
+  event.preventDefault();
+
+  if (!checkin.value || !checkout.value) {
+    notify('Selecciona las fechas de llegada y salida.');
+    return;
+  }
+
+  if (checkout.value <= checkin.value) {
+    notify('La salida debe ser posterior a la llegada.');
+    return;
+  }
+
+  const start = new Date(checkin.value + 'T12:00:00');
+  const end = new Date(checkout.value + 'T12:00:00');
+  const nights = Math.round((end - start) / 86400000);
+  const room = roomNames[document.getElementById('roomType').value];
+  const guests = document.getElementById('guests').value;
+
+  notify('Solicitud de demostración: ' + room + ' · ' +
+    nights + (nights === 1 ? ' noche' : ' noches') + ' · ' +
+    guests + '. Esta web no realiza reservas reales.');
+});
+</script>
+
+</body>
+</html>
